@@ -1,0 +1,7 @@
+{
+  "name": "MOOD MOON",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

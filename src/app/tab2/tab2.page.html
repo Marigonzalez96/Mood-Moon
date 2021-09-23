@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="tab2-component">
+    <div class="moon-phase" [ngClass]="{fadeIn: showAnimation}">
+      <ion-label class="moon-phase-name">{{selectedPhase}}</ion-label> 
+      <ion-img class="phase-img" [src]="selectedPhaseImg" [hidden]="!selectedPhaseImg"></ion-img>
+      
+    </div>
+    <div class="day-picker">
+      <ion-item>
+        <ion-label position="floating">Seleccionar Fecha</ion-label>
+        <ion-datetime 
+          [(ngModel)]="date" 
+          (ngModelChange)="changeDate($event)" 
+          placeholder="Elegir fecha" 
+          cancelText="cancelar" 
+          doneText="Confirmar" 
+          displayFormat="MM/DD/YYYY">
+        </ion-datetime>
+      </ion-item>
+    </div>
+  </div>
+  
+</ion-content>
