@@ -59,7 +59,8 @@ export class Tab1Page {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {
-        selectedPhaseImg: this.selectImg(moon.data[0].moonPhase.closest.text)
+        selectedPhaseImg: this.selectImg(moon.data[0].moonPhase.closest.text),
+        phaseName: moon.data[0].moonPhase.closest.text
       }
     });
     return await modal.present();
@@ -70,9 +71,12 @@ export class Tab1Page {
 @Component({
   selector: 'modal-page',
   templateUrl: 'modal.html',
+  styleUrls: ['./tab1.page.scss'],
 })
 export class ModalPage {
   @Input() selectedPhaseImg;
+  @Input() phaseName;
   constructor() {}
 
 }
+
