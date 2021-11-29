@@ -30,7 +30,8 @@ export class Tab1Page {
     return values;
 }
 
-  filter(fase) {
+  filter(evento) {
+    const fase= evento.detail.value;
     this.filteredData= this.data.filter(value => {
       return value.data[0].moonPhase.closest.text.toLowerCase().includes(fase.toLowerCase());
     });
