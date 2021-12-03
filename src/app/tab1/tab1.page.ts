@@ -43,19 +43,15 @@ export class Tab1Page {
   selectImg(phase) {
     switch (phase) {
       case 'Full moon':
-        return '../../assets/img/fullmoon.png';
-        break;
+        return '/assets/img/fullmoon.png';
       case 'Third quarter':
-        return '../../assets/img/thirdquarter.png';
-        break;
+        return '/assets/img/thirdquarter.png';
       case 'First quarter':
-        return '../../assets/img/firstquarter.png';
-        break;
+        return '/assets/img/firstquarter.png';
       case 'New moon':
-        return '../../assets/img/newmoon.png';
-        break;
+        return '/assets/img/newmoon.png';
       default:
-        return '../../assets/img/fullmoon.png';
+        return '/assets/img/fullmoon.png';
     }
   }
 
