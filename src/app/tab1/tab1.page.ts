@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import FULL_MOON from '/src/assets/img/fullmoon.png';
+import FIRST_QUARTER from '/src/assets/img/firstquarter.png';
+import NEW_MOON from '/src/assets/img/newmoon.png';
+import THIRD_QUARTER from '/src/assets/img/thirdquarter.png';
 
 @Component({
   selector: 'app-tab1',
@@ -43,15 +47,15 @@ export class Tab1Page {
   selectImg(phase) {
     switch (phase) {
       case 'Full moon':
-        return '/assets/img/fullmoon.png';
+        return FULL_MOON;
       case 'Third quarter':
-        return '/assets/img/thirdquarter.png';
+        return THIRD_QUARTER;
       case 'First quarter':
-        return '/assets/img/firstquarter.png';
+        return FIRST_QUARTER;
       case 'New moon':
-        return '/assets/img/newmoon.png';
+        return NEW_MOON;
       default:
-        return '/assets/img/fullmoon.png';
+        return FULL_MOON;
     }
   }
 

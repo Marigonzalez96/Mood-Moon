@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-
+import FULL_MOON from '/src/assets/img/fullmoon.png';
+import FIRST_QUARTER from '/src/assets/img/firstquarter.png';
+import NEW_MOON from '/src/assets/img/newmoon.png';
+import THIRD_QUARTER from '/src/assets/img/thirdquarter.png';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -57,21 +60,22 @@ export class Tab2Page {
   selectImg(phase) {
     switch (phase) {
       case 'Luna llena':
-        this.selectedPhaseImg = '/assets/img/fullmoon.png';
+        this.selectedPhaseImg = FULL_MOON;
         break;
       case 'Cuarto menguante':
-        this.selectedPhaseImg = '/assets/img/thirdquarter.png';
+        this.selectedPhaseImg = THIRD_QUARTER;
         break;
       case 'Cuarto creciente':
-        this.selectedPhaseImg = '/assets/img/firstquarter.png';
+        this.selectedPhaseImg = FIRST_QUARTER;
         break;
       case 'Luna nueva':
-        this.selectedPhaseImg = '/assets/img/newmoon.png';
+        this.selectedPhaseImg = NEW_MOON;
         break;
       default:
-        this.selectedPhaseImg = '/assets/img/fullmoon.png';
+        this.selectedPhaseImg = FULL_MOON;
     }
   }
+
   removeAnimation() {
     setTimeout(() => {
       this.showAnimation = false;
