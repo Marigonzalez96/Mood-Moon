@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
 	"appName": "MOOD MOON",
-	"webDir": "docs",
+	"webDir": "dist",
 	"bundledWebRuntime": false
 }

@@ -4,55 +4,58 @@ import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  data=[];
+  data = [];
   filteredData = [];
-  constructor(public modalController: ModalController) {
 
-  }  
+  constructor(public modalController: ModalController) {}
+
   ionViewWillEnter() {
-    this.data=this.allStorage();
-    this.filteredData = JSON.parse(JSON.stringify(this.data))
+    this.data = this.getAllStorage();
+    this.filteredData = JSON.parse(JSON.stringify(this.data));
   }
 
-  allStorage() {
+  getAllStorage() {
+    const values = [];
+    const keys = Object.keys(localStorage);
+    let i = keys.length;
 
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
-    while ( i-- ) {
-        values.push( JSON.parse(localStorage.getItem(keys[i])) );
+    while (i--) {
+      if (Date.parse(keys[i]) > 0) {
+        values.push(JSON.parse(localStorage.getItem(keys[i])));
+      }
     }
 
     return values;
-}
-
-  filter(evento) {
-    const fase= evento.detail.value;
-    this.filteredData= this.data.filter(value => {
-      return value.data[0].moonPhase.closest.text.toLowerCase().includes(fase.toLowerCase());
-    });
   }
 
-  selectImg(phase){
+  filter(evento) {
+    const fase = evento.detail.value;
+    this.filteredData = this.data.filter((value) =>
+      value.data[0].moonPhase.closest.text
+        .toLowerCase()
+        .includes(fase.toLowerCase())
+    );
+  }
+
+  selectImg(phase) {
     switch (phase) {
       case 'Full moon':
-      return '../../assets/img/fullmoon.png';
+        return '../../assets/img/fullmoon.png';
         break;
       case 'Third quarter':
-      return '../../assets/img/thirdquarter.png';
+        return '../../assets/img/thirdquarter.png';
         break;
       case 'First quarter':
-      return '../../assets/img/firstquarter.png';
+        return '../../assets/img/firstquarter.png';
         break;
       case 'New moon':
-      return '../../assets/img/newmoon.png';
+        return '../../assets/img/newmoon.png';
         break;
       default:
-      return '../../assets/img/fullmoon.png';
+        return '../../assets/img/fullmoon.png';
     }
   }
 
@@ -61,12 +64,11 @@ export class Tab1Page {
       component: ModalPage,
       componentProps: {
         selectedPhaseImg: this.selectImg(moon.data[0].moonPhase.closest.text),
-        phaseName: moon.data[0].moonPhase.closest.text
-      }
+        phaseName: moon.data[0].moonPhase.closest.text,
+      },
     });
     return await modal.present();
   }
-
 }
 
 @Component({
@@ -78,6 +80,4 @@ export class ModalPage {
   @Input() selectedPhaseImg;
   @Input() phaseName;
   constructor() {}
-
 }
-

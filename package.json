@@ -6,6 +6,7 @@
   "scripts": {
     "deploy": "ng deploy --base-href=https://github.com/Marigonzalez96/Mood-Moon",
     "start": "ng serve -o",
+    "start:server": "npm run build && npx http-server -o -p 4200 -c-1 dist",
     "build": "ng build"
   },
   "private": true,
