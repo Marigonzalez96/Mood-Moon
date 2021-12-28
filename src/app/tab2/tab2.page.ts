@@ -3,6 +3,7 @@ import FULL_MOON from '/src/assets/img/fullmoon.png';
 import FIRST_QUARTER from '/src/assets/img/firstquarter.png';
 import NEW_MOON from '/src/assets/img/newmoon.png';
 import THIRD_QUARTER from '/src/assets/img/thirdquarter.png';
+import { translations } from '../constants';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -13,12 +14,6 @@ export class Tab2Page {
   selectedPhase;
   selectedPhaseImg;
   showAnimation = false;
-  translations = new Map([
-    ['Full moon', 'Luna llena'],
-    ['First quarter', 'Cuarto creciente'],
-    ['New moon', 'Luna nueva'],
-    ['Third quarter', 'Cuarto menguante'],
-  ]);
 
   changeDate(selectedDate) {
     const latRanchos = 35.51725;
@@ -28,7 +23,7 @@ export class Tab2Page {
     const savedDate = JSON.parse(jsonData);
 
     if (savedDate) {
-      this.selectedPhase = this.translations.get(
+      this.selectedPhase = translations.get(
         savedDate.data[0].moonPhase.closest.text
       );
       this.selectImg(this.selectedPhase);
@@ -48,7 +43,7 @@ export class Tab2Page {
         .then((jsonData) => {
           const jsonString = JSON.stringify(jsonData);
           localStorage.setItem(selectedDate, jsonString);
-          this.selectedPhase = this.translations.get(
+          this.selectedPhase = translations.get(
             jsonData.data[0].moonPhase.closest.text
           );
           this.selectImg(this.selectedPhase);

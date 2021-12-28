@@ -4,6 +4,7 @@ import FULL_MOON from '/src/assets/img/fullmoon.png';
 import FIRST_QUARTER from '/src/assets/img/firstquarter.png';
 import NEW_MOON from '/src/assets/img/newmoon.png';
 import THIRD_QUARTER from '/src/assets/img/thirdquarter.png';
+import { translations } from '../constants';
 
 @Component({
   selector: 'app-tab1',
@@ -32,6 +33,13 @@ export class Tab1Page {
       }
     }
 
+    values.forEach(moon => {
+      moon.data[0].moonPhase.closest.text = translations.get(moon.data[0].moonPhase.closest.text);
+      moon.phaseName = moon.data[0].moonPhase.closest.text;
+      moon.phaseImg = this.selectImg(moon.phaseName);
+      moon.phaseTime = moon.data[0].moonPhase.closest.time;
+    })
+
     return values;
   }
 
@@ -47,12 +55,16 @@ export class Tab1Page {
   selectImg(phase) {
     switch (phase) {
       case 'Full moon':
+      case 'Luna llena':
         return FULL_MOON;
       case 'Third quarter':
+      case 'Cuarto menguante':
         return THIRD_QUARTER;
       case 'First quarter':
+      case 'Cuarto creciente':
         return FIRST_QUARTER;
       case 'New moon':
+      case 'Luna nueva':
         return NEW_MOON;
       default:
         return FULL_MOON;

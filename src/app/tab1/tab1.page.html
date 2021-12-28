@@ -7,17 +7,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="app-background">
-    <ion-list>
-      <ion-list-header>
-        <ion-label><b>Fechas Guardadas</b></ion-label>
-      </ion-list-header>
-      <ion-searchbar animated="true" debounce="500" (ionChange)="filter($event)"></ion-searchbar>
-      <ion-item *ngFor="let moon of filteredData" (click)="presentModal(moon)">
-        <ion-icon slot="start" name="calendar-outline"></ion-icon>
-        <ion-label slot="start">{{moon.data[0].moonPhase.closest.time | date:'dd/MM/YYYY'}} {{moon.data[0].moonPhase.closest.text}}</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+  <div class="app-background moon-phases" >
+
+    <ion-card class="date-box" *ngFor="let moon of filteredData">
+        <ion-card-title>{{moon.phaseName}}</ion-card-title>
+        <ion-card-subtitle>{{moon.phaseTime | date: 'dd/MM/YYYY'}}</ion-card-subtitle>
+        <ion-img [src]="moon.phaseImg"></ion-img>
+
+    </ion-card>
+    
+    </div>
 
 </ion-content>

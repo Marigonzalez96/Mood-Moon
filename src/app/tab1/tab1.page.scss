@@ -17,9 +17,26 @@
 .phase-name {
     position: absolute;
     top: 40%;
-    left: 30%;
     text-align: center;
-    width: fit-content;
-    font-size: 60px;
+    width: 100%;
+    font-size: 55px;
     backdrop-filter: blur(2px);
 }
+
+.moon-phases {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+
+.date-box {
+    width: 20%;
+    background-color: #9a8c98;
+    text-align: center;
+    font-size: 100px;
+}
+
+
