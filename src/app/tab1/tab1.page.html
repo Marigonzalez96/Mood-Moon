@@ -15,7 +15,8 @@
         <ion-img [src]="moon.phaseImg"></ion-img>
 
     </ion-card>
-    
-    </div>
+    <div class="message" *ngIf="filteredData.length === 0">No existen fechas guardadas</div>
+
+  </div>
 
 </ion-content>
