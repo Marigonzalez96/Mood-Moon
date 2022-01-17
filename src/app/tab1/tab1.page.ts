@@ -20,6 +20,7 @@ export class Tab1Page {
   ionViewWillEnter() {
     this.data = this.getAllStorage();
     this.filteredData = JSON.parse(JSON.stringify(this.data));
+    this.filteredData.length = 0;
   }
 
   getAllStorage() {

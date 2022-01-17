@@ -15,7 +15,14 @@ export class Tab2Page {
   selectedPhaseImg;
   showAnimation = false;
 
+  ionViewWillEnter() {
+    const today = new Date().toISOString()
+    console.debug("la fecha de hoy",today)
+    this.changeDate(today)
+  }
+
   changeDate(selectedDate) {
+    console.debug("la fecha seleccionada", selectedDate)
     const latRanchos = 35.51725;
     const lngRanchos = 58.308743;
 
