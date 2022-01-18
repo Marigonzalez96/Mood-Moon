@@ -10,7 +10,7 @@ import { translations } from '../constants';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-  date = '2021/08/22';
+  date = new Date().toISOString();
   selectedPhase;
   selectedPhaseImg;
   showAnimation = false;
