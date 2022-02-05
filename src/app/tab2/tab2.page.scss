@@ -36,9 +36,12 @@
   
 
   .day-picker {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    width: fit-content;
+    padding: 30px;
+    padding-bottom: 80%;
+    padding-top: 30px;
+    
   }
+
+  
