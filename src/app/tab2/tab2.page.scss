@@ -1,21 +1,19 @@
 .moon-phase {
     display: grid;
     place-items: center;
-    height: 300px;
+    height: 200px;
 }
 
 .moon-phase-name {
   color: #ffffff;
   width: fit-content;
-  margin-top: 20px;
-  font-size: 42px;
+  margin-top: 10px;
+  font-size: 22px;
 }
 
 .phase-img {
-    height: 300px;
-    width: 300px;
-    margin-top: 20px;
-   
+    height: 150px;
+    width: 150px;   
 }
 
   @keyframes fadeIn {
@@ -37,11 +35,21 @@
 
   .day-picker {
     display: flex;
-    width: fit-content;
-    padding: 30px;
-    padding-bottom: 80%;
-    padding-top: 30px;
-    
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    ion-label {
+      background-color: #ffffff;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      width: 100%;
+      
+    }
   }
 
-  
+  .search-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
