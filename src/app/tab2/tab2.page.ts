@@ -37,8 +37,10 @@ export class Tab2Page {
       this.showAnimation = true;
       this.removeAnimation();
     } else {
+      const date = new Date(selectedDate);
+      date.setHours(0,0,0,0) 
       fetch(
-        `https://api.stormglass.io/v2/astronomy/point?lat=${latRanchos}&lng=${lngRanchos}&start=${selectedDate}`,
+        `https://api.stormglass.io/v2/astronomy/point?lat=${latRanchos}&lng=${lngRanchos}&start=${date.toISOString()}&end=${date.toISOString()}`,
         {
           headers: {
             Authorization:
@@ -48,6 +50,9 @@ export class Tab2Page {
       )
         .then((response) => response.json())
         .then((jsonData) => {
+          if (jsonData.errors) {
+            return; 
+          }
           const jsonString = JSON.stringify(jsonData);
           localStorage.setItem(selectedDate, jsonString);
           this.selectedPhase = translations.get(

@@ -34,10 +34,12 @@ export class Tab1Page {
     }
 
     values.forEach(moon => {
+      if (moon.data && moon.data[0]){
       moon.data[0].moonPhase.closest.text = translations.get(moon.data[0].moonPhase.closest.text);
       moon.phaseName = moon.data[0].moonPhase.closest.text;
       moon.phaseImg = this.selectImg(moon.phaseName);
       moon.phaseTime = moon.data[0].moonPhase.closest.time;
+      }
     })
 
     return values;
