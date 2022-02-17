@@ -1,7 +1,9 @@
+@import '/src/variables.scss';
+
+
 .moon-phase {
     display: grid;
     place-items: center;
-    height: 200px;
 }
 
 .moon-phase-name {
@@ -52,4 +54,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  @media only screen and (min-width: $medium-screen) {
+    .search-content{
+      flex-direction: row;
+      align-items: center;
+
+    }
+
+    .day-picker{
+      flex: 1;
+      padding-right: 20px;
+    }
+    .moon-phase{
+      flex: 1;
+    }
+    .phase-img {
+      height: 20vw;
+      width: 20vw;
+    }
   }
